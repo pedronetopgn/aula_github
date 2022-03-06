@@ -54,6 +54,15 @@ public class Main {
 
 	public static void ListarContas() {
 		System.out.println("Listar contas");
+		if(contas.size() == 0) {
+			System.out.println("Nao existem contas");
+		}
+		else {
+			for(Conta suaConta : contas) {
+				suaConta.ListarConta();
+				System.out.println("");
+			}
+		}
 	}
 
 }

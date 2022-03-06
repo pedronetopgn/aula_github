@@ -11,6 +11,9 @@ public class Conta {
     this.saldo = saldo;
   }
 
-	public static void ListarConta() {
+	public void ListarConta() {
+    System.out.println("Nome: " + this.nome);
+    System.out.println("Numero da conta: " + this.nrConta);
+    System.out.println("Saldo: " + this.saldo);
 	}
 }
