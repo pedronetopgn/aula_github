@@ -27,11 +27,13 @@ public class Main {
 			}
 
 			if(op == 3) {
-				break;
+				Menu menuOperacoes = new Menu("Menu operacoes", Arrays.asList("Saque", "Deposito", "Sair"));
+				int operacao = menuOperacoes.getSelection();
+				if(operacao == 1) {
+					Saque();
+				}
 			}
 		}
-
-		System.out.println("Fim");
 	}
 
 	public static void CriarConta() {
@@ -65,4 +67,30 @@ public class Main {
 		}
 	}
 
+	public static void Saque() {
+		System.out.println("Operacao de Saque");
+
+		System.out.print("Numero da conta: ");
+		Scanner s = new Scanner(System.in);
+		String numeroConta = s.nextLine();
+		Conta contaEncontrada = findConta(Integer.parseInt(numeroConta));
+		if(contaEncontrada == null){
+			System.out.println("Conta nao encontrada");
+			return;
+		}
+		System.out.print("Valor do saque: ");
+		String valor = s.nextLine();
+		contaEncontrada.Saque(Float.parseFloat(valor));
+		System.out.println("Valor sacado com sucesso.");
+	}
+
+	public static Conta findConta(Integer nrConta) {
+
+		for (Conta conta : contas) {
+			if (conta.GetNrConta().equals(nrConta)) {
+				return conta;
+			}
+		}
+    	return null;
+	}
 }
