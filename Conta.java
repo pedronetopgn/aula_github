@@ -19,6 +19,10 @@ public class Conta {
     this.saldo = this.saldo - valor;
   }
 
+  public void Deposito(float valor){
+    this.saldo = this.saldo + valor;
+  }
+
   public Integer GetNrConta(){
     return this.nrConta;
   }
