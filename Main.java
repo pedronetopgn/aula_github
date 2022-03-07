@@ -73,7 +73,15 @@ public class Main {
 	}
 
 	public static void ListarClientes(){
-		
+		System.out.println("Listar clientes");
+		if (clientes.size() == 0) {
+			System.out.println("Nao existem clientes");
+		} else {
+			for (Cliente seuCliente : clientes) {
+				seuCliente.ListarCliente();
+				System.out.println("");
+			}
+		}
 	}
 
 	public static void CriarConta() {
