@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class Conta {
   private int nrConta;
   private String nome;
@@ -16,4 +14,12 @@ public class Conta {
     System.out.println("Numero da conta: " + this.nrConta);
     System.out.println("Saldo: " + this.saldo);
 	}
+
+  public void Saque(float valor) {
+    this.saldo = this.saldo - valor;
+  }
+
+  public Integer GetNrConta(){
+    return this.nrConta;
+  }
 }
