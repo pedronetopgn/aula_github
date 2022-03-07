@@ -9,7 +9,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		while (true) {
-			Menu mainMenu = new Menu("Menu Principal", Arrays.asList("Conta", "Cliente", "Operacoes"));
+			Menu mainMenu = new Menu("\nMenu Principal", Arrays.asList("Conta", "Cliente", "Operacoes"));
 			int op = mainMenu.getSelection();
 
 			if (op == 1) {
@@ -39,7 +39,7 @@ public class Main {
 			}
 
 			if (op == 3) {
-				Menu menuOperacoes = new Menu("Menu operacoes", Arrays.asList("Saque", "Deposito", "Sair"));
+				Menu menuOperacoes = new Menu("Menu operacoes", Arrays.asList("Saque", "Deposito", "Extrato", "Sair"));
 				int operacao = menuOperacoes.getSelection();
 				if (operacao == 1) {
 					Saque();
@@ -48,6 +48,9 @@ public class Main {
 					Deposito();
 				}
 				if (operacao == 3) {
+					Extrato();
+				}
+				if (operacao == 4) {
 					System.out.println("Saindo");
 				}
 			}
@@ -146,6 +149,21 @@ public class Main {
 		String valor = s.nextLine();
 		contaEncontrada.Deposito(Float.parseFloat(valor));
 		System.out.println("Valor depositado com sucesso.");
+	}
+
+	public static void Extrato() {
+		System.out.println("Extrato de Conta");
+
+		System.out.print("Numero da conta: ");
+		Scanner s = new Scanner(System.in);
+		String numeroConta = s.nextLine();
+		Conta contaEncontrada = findConta(Integer.parseInt(numeroConta));
+		if (contaEncontrada == null) {
+			System.out.println("Conta nao encontrada");
+			return;
+		}
+		System.out.println("Extrato da Conta: ");
+		System.out.println("\n" + contaEncontrada.Extrato());
 	}
 
 	public static Conta findConta(Integer nrConta) {
