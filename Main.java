@@ -9,7 +9,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		while (true) {
-			Menu mainMenu = new Menu("\nMenu Principal", Arrays.asList("Conta", "Cliente", "Operacoes"));
+			Menu mainMenu = new Menu("\nMenu Principal", Arrays.asList("Conta", "Cliente", "Operacoes", "Sair"));
 			int op = mainMenu.getSelection();
 
 			if (op == 1) {
@@ -53,6 +53,11 @@ public class Main {
 				if (operacao == 4) {
 					System.out.println("Saindo");
 				}
+			}
+
+			if (op == 4) {
+				System.out.println("Saindo...");
+				System.exit(0);
 			}
 		}
 	}
