@@ -8,4 +8,10 @@ public class Cliente {
         this.nome = nome;
         this.tel = tel;
     }
+
+    public void ListarCliente() {
+        System.out.println("Nome: " + this.nome);
+        System.out.println("CPF: " + this.cpf);
+        System.out.println("Telefone: " + this.tel);
+    }
 }
