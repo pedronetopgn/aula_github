@@ -32,6 +32,12 @@ public class Main {
 				if(operacao == 1) {
 					Saque();
 				}
+				if(operacao == 2) {
+					Deposito();
+				}
+				if(operacao == 3){
+					System.out.println("Saindo");
+				}
 			}
 		}
 	}
@@ -82,6 +88,23 @@ public class Main {
 		String valor = s.nextLine();
 		contaEncontrada.Saque(Float.parseFloat(valor));
 		System.out.println("Valor sacado com sucesso.");
+	}
+
+	public static void Deposito() {
+		System.out.println("Operacao de Deposito");
+
+		System.out.print("Numero da conta: ");
+		Scanner s = new Scanner(System.in);
+		String numeroConta = s.nextLine();
+		Conta contaEncontrada = findConta(Integer.parseInt(numeroConta));
+		if(contaEncontrada == null){
+			System.out.println("Conta nao encontrada");
+			return;
+		}
+		System.out.print("Valor do deposito: ");
+		String valor = s.nextLine();
+		contaEncontrada.Deposito(Float.parseFloat(valor));
+		System.out.println("Valor depositado com sucesso.");
 	}
 
 	public static Conta findConta(Integer nrConta) {
