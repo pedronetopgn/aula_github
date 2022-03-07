@@ -2,6 +2,7 @@ public class Conta {
   private int nrConta;
   private String nome;
   private float saldo;
+  private String extrato = "";
 
   Conta (int nrConta, String nome, float saldo) {
     this.nrConta = nrConta;
@@ -16,11 +17,21 @@ public class Conta {
 	}
 
   public void Saque(float valor) {
+    this.extrato += "Efetuando Saque com Saldo: R$" + this.saldo + "\n";
     this.saldo = this.saldo - valor;
+    this.extrato += "Saldo final: R$" + this.saldo + "\n";
   }
 
   public void Deposito(float valor){
+    this.extrato += "Efetuando Deposito com Saldo: R$" + this.saldo + "\n";
     this.saldo = this.saldo + valor;
+    this.extrato += "Saldo final: R$" + this.saldo + "\n";
+  }
+
+  public String Extrato(){
+    if(this.extrato == "")
+      return "Conta nao efetuou operacoes.";
+    return this.extrato;
   }
 
   public Integer GetNrConta(){
